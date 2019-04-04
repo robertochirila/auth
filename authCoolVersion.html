@@ -19,8 +19,7 @@
       margin-top: 5%;
       margin-left: 35%;
     }
-    .content--container {
-    }
+    
     .form--states {
       display: flex;
       flex-direction: row;
@@ -73,7 +72,6 @@
     }
     
     #continueCreateAccount {
-      margin: 10% 0;
       width: 100px;
       height: 30px;
     }
@@ -135,6 +133,7 @@
 
 }
     #continueSignIn{
+        margin-bottom: 5%;
       border-color: #000;
       color: #000;
     }
@@ -150,10 +149,7 @@
         display: flex;
         justify-content: space-between;
     }
-    .create--container{
-        margin: 15% 0;
-    }
-
+    
     .navContainer {
       margin-top: 5%;
       margin-bottom: 5%;
@@ -161,7 +157,9 @@
     .socialButtons--container{
         display: flex;
         justify-content: space-between;
+        margin: 10% 0;
     }
+    
   </style>
   <body>
     <div class="login--container">
@@ -169,16 +167,16 @@
       <div class="wrapper">
         <div class="form--states">
           <div class="navContainer">
-            <button class="navButton">Guest Checkout</button>
+            <button class="navButton" id="guestCustomer">Guest Checkout</button>
           </div>
           <div class="navContainer">
-            <button class="navButton">Returning Customer</button>
+            <button class="navButton" id="returningCustomer">Returning Customer</button>
           </div>
         </div>
         <div class="form--container">
           <div id="showSignIn" style="display:none">
             <div class="content--container">
-              <h5>Sign in with email</h5>
+              <h4>Sign in with email</h4>
               <div class="guest--input">
                 <input type="text" placeholder="Email address" class="input" />
                 <input type="password" placeholder="Password" class="input" />
@@ -191,7 +189,7 @@
 
           <div id="showGuestlogin">
             <div class="content--container">
-              <h5>Continue as a guest</h5>
+              <h4>Continue as a guest</h4>
               <div class="userData--input">
                 <input type="text" placeholder="First Name" class="input" />
                 <input
@@ -215,7 +213,7 @@
           </div>
           <div id="showCreateAccount" style="display:none">
             <div class="content--container">
-              <h5>Create an account</h5>
+              <h4>Create an account</h4>
               <div class="userData--input">
                 <input type="text" placeholder="First Name" class="input" />
                 <input
@@ -241,16 +239,16 @@
             </div>
           </div>
           
-          <div class="create--container">
-            <h5>Or create an account with...</h5>
+          <div class="create--container" id="createAccountContainer">
+            <h4>Or create an account with...</h4>
             <div class="socialAccountContainer">
             <button class="button" id="createAccountEmail">Email</button>
             <button class="button" id="createAccountFacebook">Facebook</button>
             <button class="button" id="createAccountGoogle">Google</button>
         </div>
           </div>
-          <div class="loginSocial--container" style="display:none">
-            <h5>Or connect with...</h5>
+          <div class="loginSocial--container" style="display:none" id="loginAccountContainer">
+            <h4>Or connect with...</h4>
             <div class="socialButtons--container">
               <button class="button" id="facebookLogin">Facebook</button>
               <button class="button" id="googleLogin">Google</button>
@@ -262,8 +260,47 @@
     </div>
     <script>
         document
-          .getElementById("returning")
+          .getElementById("returningCustomer")
           .addEventListener("click", function() {
+              let guestContainer = document.getElementById('showGuestlogin')
+              guestContainer.style.display="none"
+              let signInContainer = document.getElementById('showSignIn')
+              signInContainer.style.display="inline"
+              let createAccountContainer = document.getElementById("createAccountContainer")
+              createAccountContainer.style.display="none"
+              let loginAccountContainer = document.getElementById('loginAccountContainer')
+              loginAccountContainer.style.display="inline"
+              let showCreateAccount = document.getElementById("showCreateAccount")
+              showCreateAccount.style.display = "none"
+          });
+          document
+          .getElementById("guestCustomer")
+          .addEventListener("click", function() {
+              let guestContainer = document.getElementById('showGuestlogin')
+              guestContainer.style.display="inline"
+              let signInContainer = document.getElementById('showSignIn')
+              signInContainer.style.display="none"
+              let createAccountContainer = document.getElementById("createAccountContainer")
+              createAccountContainer.style.display="inline"
+              let loginAccountContainer = document.getElementById('loginAccountContainer')
+              loginAccountContainer.style.display="none"
+              let showCreateAccount = document.getElementById("showCreateAccount")
+              showCreateAccount.style.display = "none"
+          });
+          document
+          .getElementById("createAccountEmail")
+          .addEventListener("click", function() {
+              let guestContainer = document.getElementById('showGuestlogin')
+              guestContainer.style.display="none"
+              let signInContainer = document.getElementById('showSignIn')
+              signInContainer.style.display="none"
+              let createAccountContainer = document.getElementById("createAccountContainer")
+              createAccountContainer.style.display="none"
+              let loginAccountContainer = document.getElementById('loginAccountContainer')
+              loginAccountContainer.style.display="none"
+              let showCreateAccount = document.getElementById("showCreateAccount")
+              showCreateAccount.style.display = "inline"
+
           });
     </script>
   </body>
