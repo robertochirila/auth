@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Sign In with Auth0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+  </head>
+  <style>
+    .wrapper {
+      border: 1px solid #cdc2b7;
+    }
+    .login--container {
+      width: 30%;
+      margin-top: 5%;
+      margin-left: 35%;
+    }
+    .content--container {
+    }
+    .form--states {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      border-bottom: 1px solid #cdc2b7;
+    }
+    .form--container {
+      width: 80%;
+      margin-left: 10%;
+      margin-top: 10%;
+      margin-bottom: 10%;
+    }
+    .guest--input {
+      display: inline-block;
+      width: 100%;
+    }
+    .userData--input {
+      display: flex;
+      justify-content: space-between;
+    }
+    .continue--button {
+      display: flex;
+      justify-content: center;
+    }
+    .login--button {
+      margin: 5% 0;
+      display: flex;
+      justify-content: center;
+    }
+    .create--input--container {
+      display: flex;
+      flex-direction: column;
+    }
+    .input {
+      width: 100%;
+      border: 1px solid;
+      margin: 3% 0;
+      padding: 2% 5%;
+    }
+    .button {
+      background: transparent;
+      border: 1px solid;
+      transition: color 0.5s, background-color 0.5s;
+      width: 95px;
+      height: 30px;
+    }
+    .navButton {
+      border: none;
+      background: transparent;
+    }
+    
+    #continueCreateAccount {
+      margin: 10% 0;
+      width: 100px;
+      height: 30px;
+    }
+    #continueCreateAccount:hover {
+      color: #fff;
+      background: #000;
+    }
+    #lnameCreate {
+      margin-left: 5%;
+    }
+    #lnameGuest {
+      margin-left: 5%;
+    }
+    #facebookLogin {
+    color: #3b5998;
+    border-color: #3b5998;
+    width: 45%;
+    }
+    #facebookLogin:hover{
+    color: #fff;
+      background: #3b5998;
+    }
+    #googleLogin {
+        color: #DB4437;
+       border-color: #DB4437;
+       width: 45%;
+    }
+    #loginButton:hover{
+        background-color: #000;
+        color: #fff;
+    }
+    #googleLogin:hover{
+        color: #fff;
+        background-color: #DB4437;
+    }
+    #createAccountEmail{
+        color: #000;
+        border-color: #000;
+    }
+    #createAccountEmail:hover{
+        background-color: #000;
+        color: #fff;
+}
+#createAccountFacebook{
+    color: #3b5998;
+    border-color: #3b5998;
+}
+    #createAccountFacebook:hover{
+        color: #fff;
+        background-color: #3b5998;
+    }
+    #createAccountGoogle{
+        color: #DB4437;
+       border-color: #DB4437;
+    }
+    #createAccountGoogle:hover{
+        color: #fff;
+        background-color: #DB4437;
+
+}
+    #continueSignIn{
+      border-color: #000;
+      color: #000;
+    }
+    #continueSignIn:hover{
+        background-color: #000;
+        color: #fff;
+    }
+    .loginSocial {
+        display: inline;
+    }
+    .socialAccountContainer{
+        margin: 10% 0;
+        display: flex;
+        justify-content: space-between;
+    }
+    .create--container{
+        margin: 15% 0;
+    }
+
+    .navContainer {
+      margin-top: 5%;
+      margin-bottom: 5%;
+    }
+    .socialButtons--container{
+        display: flex;
+        justify-content: space-between;
+    }
+  </style>
+  <body>
+    <div class="login--container">
+      <h3>Checkout</h3>
+      <div class="wrapper">
+        <div class="form--states">
+          <div class="navContainer">
+            <button class="navButton">Guest Checkout</button>
+          </div>
+          <div class="navContainer">
+            <button class="navButton">Returning Customer</button>
+          </div>
+        </div>
+        <div class="form--container">
+          <div id="showSignIn" style="display:none">
+            <div class="content--container">
+              <h5>Sign in with email</h5>
+              <div class="guest--input">
+                <input type="text" placeholder="Email address" class="input" />
+                <input type="password" placeholder="Password" class="input" />
+              </div>
+              <div class="login--button">
+                <button class="button" id="loginButton">Log in</button>
+              </div>
+            </div>
+          </div>
+
+          <div id="showGuestlogin">
+            <div class="content--container">
+              <h5>Continue as a guest</h5>
+              <div class="userData--input">
+                <input type="text" placeholder="First Name" class="input" />
+                <input
+                  type="text"
+                  placeholder="Last Name"
+                  class="input"
+                  id="lnameGuest"
+                />
+              </div>
+              <div class="create--input--container">
+                <input
+                  type="emaill"
+                  placeholder="Email address"
+                  class="input"
+                />
+              </div>
+              <div class="login--button">
+                <button class="button" id="continueSignIn">Continue</button>
+              </div>
+            </div>
+          </div>
+          <div id="showCreateAccount" style="display:none">
+            <div class="content--container">
+              <h5>Create an account</h5>
+              <div class="userData--input">
+                <input type="text" placeholder="First Name" class="input" />
+                <input
+                  type="text"
+                  placeholder="Last Name"
+                  class="input"
+                  id="lnameCreate"
+                />
+              </div>
+              <div class="create--input--container">
+                <input
+                  type="emaill"
+                  placeholder="Email address"
+                  class="input"
+                />
+                <input type="password" placeholder="Password" class="input" />
+              </div>
+              <div class="login--button">
+                <button class="button" id="continueCreateAccount">
+                  Continue
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="create--container">
+            <h5>Or create an account with...</h5>
+            <div class="socialAccountContainer">
+            <button class="button" id="createAccountEmail">Email</button>
+            <button class="button" id="createAccountFacebook">Facebook</button>
+            <button class="button" id="createAccountGoogle">Google</button>
+        </div>
+          </div>
+          <div class="loginSocial--container" style="display:none">
+            <h5>Or connect with...</h5>
+            <div class="socialButtons--container">
+              <button class="button" id="facebookLogin">Facebook</button>
+              <button class="button" id="googleLogin">Google</button>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+        document
+          .getElementById("returning")
+          .addEventListener("click", function() {
+          });
+    </script>
+  </body>
+</html>
