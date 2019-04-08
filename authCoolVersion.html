@@ -13,7 +13,6 @@
   <style>
       body{
           background-color: #fff;
-          /*clip-path: ellipse(60px 40px at 75px 30px);*/
       }
     .wrapper {
       border: 1px solid #cdc2b7;
@@ -23,6 +22,7 @@
       width: 30%;
       margin-top: 5%;
       margin-left: 35%;
+      animation: 0.3s ease-out 0s 1 slideInFromBottom;
     }
     
     .form--states {
@@ -165,6 +165,31 @@
         justify-content: space-between;
         margin: 10% 0;
     }
+    #guestCustomer{
+      border-bottom: 1px solid #cdc2b7;
+    }
+    
+    .showSignInAnimation{
+      animation: 0.3s ease-out 0s 1 slideInFromLeft;
+    }
+    .showSignInAnimationAccount{
+      animation: 0.3s ease-out 0s 1 slideInFromRight;
+    }
+    #showGuestlogin{
+      animation: 0.3s ease-out 0s 1 slideInFromLeft;
+    }
+    #createAccountContainer{
+      animation: 0.3s ease-out 0s 1 slideInFromRight;
+    }
+    .noOpacity{
+      opacity: 0;
+    }
+    .addOpacity{
+      opacity: 1;
+    }
+    .displayNone{
+      display:none;
+    }
 
     @media only screen 
   and (min-device-width: 1024px) 
@@ -237,6 +262,7 @@ and (orientation : portrait) {
         width: 90%;
         height: 70vh;
         margin-left: 5%;
+        
       }
       .wrapper{
         height: 100%;
@@ -253,7 +279,48 @@ and (orientation : portrait) {
         height: 35px;
       }
     }
-
+    /*
+    ANIMATIONS
+    */
+    @keyframes slideInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(+20%);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(+30%);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-30%);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
     
   </style>
   <body>
@@ -269,7 +336,7 @@ and (orientation : portrait) {
           </div>
         </div>
         <div class="form--container">
-          <div id="showSignIn" style="display:none">
+          <div id="showSignIn" class="displayNone">
             <div class="content--container">
               <h4>Sign in with email</h4>
               <div class="guest--input">
@@ -306,7 +373,7 @@ and (orientation : portrait) {
               </div>
             </div>
           </div>
-          <div id="showCreateAccount" style="display:none">
+          <div id="showCreateAccount" class="displayNone">
             <div class="content--container">
               <h4>Create an account</h4>
               <div class="userData--input">
@@ -342,7 +409,7 @@ and (orientation : portrait) {
             <button class="button" id="createAccountGoogle">Google</button>
         </div>
           </div>
-          <div style="display:none" id="loginAccountContainer">
+          <div id="loginAccountContainer" class="displayNone">
             <h4>Or connect with...</h4>
             <div class="socialButtons--container">
               <button class="button" id="facebookLogin">Facebook</button>
@@ -354,47 +421,76 @@ and (orientation : portrait) {
       </div>
     </div>
     <script>
+      window.onload = function() {
+        let inputContainer = document.getElementById("showGuestlogin")
+        inputContainer.classList.remove("noOpacity");
+        inputContainer.classList.add("addOpacity");
+        let createAccountContainer = document.getElementById("createAccountContainer")
+        createAccountContainer.classList.remove("noOpacity");
+        createAccountContainer.classList.add("addOpacity");
+        createAccountContainer.classList.add("addOpacity");
+};
         document
           .getElementById("returningCustomer")
           .addEventListener("click", function() {
+            let guestCustomer = document.getElementById("guestCustomer")
+            guestCustomer.style.border = "none"
+            let returningCustomer = document.getElementById("returningCustomer")
+            returningCustomer.style.borderBottom = "1px solid #cdc2b7"
               let guestContainer = document.getElementById('showGuestlogin')
-              guestContainer.style.display="none"
+              guestContainer.classList.add("displayNone")
               let signInContainer = document.getElementById('showSignIn')
-              signInContainer.style.display="inline"
+              signInContainer.classList.remove('displayNone')
+              
+              //signInContainer.classList.remove("noOpacity")
+              //signInContainer.classList.add("addOpacity","showSignInAnimation")
+              signInContainer.classList.add("showSignInAnimation")
+              //signInContainer.style.display="inline"
+              
               let createAccountContainer = document.getElementById("createAccountContainer")
-              createAccountContainer.style.display="none"
+              createAccountContainer.classList.add("displayNone")
               let loginAccountContainer = document.getElementById('loginAccountContainer')
-              loginAccountContainer.style.display="inline"
+              loginAccountContainer.classList.remove("displayNone")
+              loginAccountContainer.classList.add("showSignInAnimationAccount")
               let showCreateAccount = document.getElementById("showCreateAccount")
-              showCreateAccount.style.display = "none"
+              showCreateAccount.classList.add('displayNone')
           });
           document
           .getElementById("guestCustomer")
           .addEventListener("click", function() {
+            let returningCustomer = document.getElementById("returningCustomer")
+            returningCustomer.style.border = "none"
+            let guestCustomer = document.getElementById("guestCustomer")
+            guestCustomer.style.borderBottom = "1px solid #cdc2b7"
               let guestContainer = document.getElementById('showGuestlogin')
-              guestContainer.style.display="inline"
+              guestContainer.classList.remove('displayNone')
               let signInContainer = document.getElementById('showSignIn')
-              signInContainer.style.display="none"
+              signInContainer.classList.add('displayNone')
               let createAccountContainer = document.getElementById("createAccountContainer")
-              createAccountContainer.style.display="inline"
+              createAccountContainer.classList.remove("displayNone")
+              createAccountContainer.classList.add("showSignInAnimationAccount")
               let loginAccountContainer = document.getElementById('loginAccountContainer')
-              loginAccountContainer.style.display="none"
+              loginAccountContainer.classList.add("displayNone")
+              //loginAccountContainer.classList.add("showSignInAnimationAccount")
               let showCreateAccount = document.getElementById("showCreateAccount")
-              showCreateAccount.style.display = "none"
+              showCreateAccount.classList.add("displayNone")
           });
           document
           .getElementById("createAccountEmail")
           .addEventListener("click", function() {
+            let guestCustomer = document.getElementById("guestCustomer")
+            guestCustomer.style.border = "none"
               let guestContainer = document.getElementById('showGuestlogin')
-              guestContainer.style.display="none"
+              guestContainer.classList.add("displayNone")
               let signInContainer = document.getElementById('showSignIn')
-              signInContainer.style.display="none"
+              signInContainer.classList.add("displayNone")
               let createAccountContainer = document.getElementById("createAccountContainer")
-              createAccountContainer.style.display="none"
+              createAccountContainer.classList.add("displayNone")
               let loginAccountContainer = document.getElementById('loginAccountContainer')
-              loginAccountContainer.style.display="none"
+              loginAccountContainer.classList.add("displayNone")
               let showCreateAccount = document.getElementById("showCreateAccount")
-              showCreateAccount.style.display = "inline"
+              showCreateAccount.classList.remove("displayNone")
+              showCreateAccount.classList.add("showSignInAnimationAccount")
           });
     </script>
   </body>
