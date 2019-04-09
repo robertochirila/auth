@@ -11,20 +11,32 @@
     />
   </head>
   <style>
-      body{
-          background-color: #fff;
-      }
+    /*.background{
+        background: linear-gradient(to right, rgba(123,120,145,0.3),rgba(123,100,145,1));
+          clip-path: polygon(0 0 , 100% 0, 100% 200px, 0 100%);
+          height: 100vh;
+          z-index: -1;
+      }*/
+
+    body {
+      background-image: url("background_login-02.png");
+      background-size: cover;
+      background-position: top;
+    }
+
     .wrapper {
       border: 1px solid #cdc2b7;
       box-shadow: 1px 1px 1px #cdc2b7;
+      background-color: #fff;
     }
     .login--container {
+      z-index: 1;
       width: 30%;
       margin-top: 5%;
       margin-left: 35%;
-      animation: 0.3s ease-out 0s 1 slideInFromBottom;
+      animation: 0.5s ease-out 0s 1 slideInFromBottom;
     }
-    
+
     .form--states {
       display: flex;
       flex-direction: row;
@@ -75,7 +87,7 @@
       border: none;
       background: transparent;
     }
-    
+
     #continueCreateAccount {
       width: 100px;
       height: 30px;
@@ -91,190 +103,181 @@
       margin-left: 5%;
     }
     #facebookLogin {
-    color: #3b5998;
-    border-color: #3b5998;
-    width: 45%;
+      color: #3b5998;
+      border-color: #3b5998;
+      width: 45%;
     }
-    #facebookLogin:hover{
-    color: #fff;
+    #facebookLogin:hover {
+      color: #fff;
       background: #3b5998;
     }
     #googleLogin {
-        color: #DB4437;
-       border-color: #DB4437;
-       width: 45%;
+      color: #db4437;
+      border-color: #db4437;
+      width: 45%;
     }
-    #loginButton{
-        margin-bottom: 5%;
+    #loginButton {
+      margin-bottom: 5%;
     }
-    #loginButton:hover{
-        background-color: #000;
-        color: #fff;
+    #loginButton:hover {
+      background-color: #000;
+      color: #fff;
     }
-    #googleLogin:hover{
-        color: #fff;
-        background-color: #DB4437;
+    #googleLogin:hover {
+      color: #fff;
+      background-color: #db4437;
     }
-    #createAccountEmail{
-        color: #000;
-        border-color: #000;
+    #createAccountEmail {
+      color: #000;
+      border-color: #000;
     }
-    #createAccountEmail:hover{
-        background-color: #000;
-        color: #fff;
-}
-#createAccountFacebook{
-    color: #3b5998;
-    border-color: #3b5998;
-}
-    #createAccountFacebook:hover{
-        color: #fff;
-        background-color: #3b5998;
+    #createAccountEmail:hover {
+      background-color: #000;
+      color: #fff;
     }
-    #createAccountGoogle{
-        color: #DB4437;
-       border-color: #DB4437;
+    #createAccountFacebook {
+      color: #3b5998;
+      border-color: #3b5998;
     }
-    #createAccountGoogle:hover{
-        color: #fff;
-        background-color: #DB4437;
-
-}
-    #continueSignIn{
+    #createAccountFacebook:hover {
+      color: #fff;
+      background-color: #3b5998;
+    }
+    #createAccountGoogle {
+      color: #db4437;
+      border-color: #db4437;
+    }
+    #createAccountGoogle:hover {
+      color: #fff;
+      background-color: #db4437;
+    }
+    #continueSignIn {
       margin-bottom: 5%;
       border-color: #000;
       color: #000;
     }
-    #continueSignIn:hover{
-        background-color: #000;
-        color: #fff;
+    #continueSignIn:hover {
+      background-color: #000;
+      color: #fff;
     }
-    
-    .socialAccountContainer{
-        margin: 10% 0;
-        display: flex;
-        justify-content: space-between;
+
+    .socialAccountContainer {
+      margin: 10% 0;
+      display: flex;
+      justify-content: space-between;
     }
-    
+
     .navContainer {
       margin-top: 5%;
       margin-bottom: 5%;
     }
-    .socialButtons--container{
-        display: flex;
-        justify-content: space-between;
-        margin: 10% 0;
+    .socialButtons--container {
+      display: flex;
+      justify-content: space-between;
+      margin: 10% 0;
     }
-    #guestCustomer{
+    #guestCustomer {
       border-bottom: 1px solid #cdc2b7;
     }
-    
-    .showSignInAnimation{
-      animation: 0.3s ease-out 0s 1 slideInFromLeft;
+
+    .showSignInAnimation {
+      animation: 0.7s ease-out 0s 1 slideInFromLeft;
     }
-    .showSignInAnimationAccount{
-      animation: 0.3s ease-out 0s 1 slideInFromRight;
+    .showSignInAnimationAccount {
+      animation: 0.7s ease-out 0s 1 slideInFromRight;
     }
-    #showGuestlogin{
-      animation: 0.3s ease-out 0s 1 slideInFromLeft;
+    #showGuestlogin {
+      animation: 0.7s ease-out 0s 1 slideInFromLeft;
     }
-    #createAccountContainer{
-      animation: 0.3s ease-out 0s 1 slideInFromRight;
+    #createAccountContainer {
+      animation: 0.7s ease-out 0s 1 slideInFromRight;
     }
-    .noOpacity{
+    .noOpacity {
       opacity: 0;
     }
-    .addOpacity{
+    .addOpacity {
       opacity: 1;
     }
-    .displayNone{
-      display:none;
+    .displayNone {
+      display: none;
     }
 
-    @media only screen 
-  and (min-device-width: 1024px) 
-  and (max-device-width: 1366px) 
-  and (orientation: landscape) 
-  and (-webkit-min-device-pixel-ratio: 1.5) {
-    body{
-      font-size: 26px;
-    }
-    .login--container{
+    @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1.5) {
+      body {
+        font-size: 26px;
+      }
+      .login--container {
         width: 60%;
         height: 50vh;
         margin-left: 20%;
       }
-      
-      .input{
-        padding: 3% 8%;
-      }
-      .button{
-        width:155px;
-        height: 65px;
-      }
-      #continueCreateAccount{
-        width:155px;
-        height: 65px;
-      }
-      h4{
-        font-size: 120%;
-      }
-      h3{
-        font-size: 120%;
-      }
-}
-     @media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
-and (orientation : portrait) { 
-  body{
-    font-size: 26px;
-  }
-  .login--container{
-        width: 90%;
-        height: 70vh;
-        margin-left: 5%;
-      }
-      .wrapper{
-        height: 100%;
-      }
-      .input{
-        padding: 3% 8%;
-      }
-      .button{
-        width:155px;
-        height: 65px;
-      }
-      #continueCreateAccount{
-        width:155px;
-        height: 65px;
-      }
-      h4{
-        font-size: 140%;
-      }
-      h3{
-        font-size: 140%;
-      }
- }
 
-    @media(max-width:600px){
-      .login--container{
+      .input {
+        padding: 3% 8%;
+      }
+      .button {
+        width: 155px;
+        height: 65px;
+      }
+      #continueCreateAccount {
+        width: 155px;
+        height: 65px;
+      }
+      h4 {
+        font-size: 120%;
+      }
+      h3 {
+        font-size: 120%;
+      }
+    }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+      body {
+        font-size: 26px;
+      }
+      .login--container {
         width: 90%;
         height: 70vh;
         margin-left: 5%;
-        
       }
-      .wrapper{
+      .wrapper {
         height: 100%;
       }
-      .input{
+      .input {
         padding: 3% 8%;
       }
-      .button{
+      .button {
+        width: 155px;
+        height: 65px;
+      }
+      #continueCreateAccount {
+        width: 155px;
+        height: 65px;
+      }
+      h4 {
+        font-size: 140%;
+      }
+      h3 {
+        font-size: 140%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .login--container {
+        width: 90%;
+        height: 70vh;
+        margin-left: 5%;
+      }
+      .wrapper {
+        height: 100%;
+      }
+      .input {
+        padding: 3% 8%;
+      }
+      .button {
         width: 85px;
         height: 35px;
       }
-      #continueCreateAccount{
+      #continueCreateAccount {
         width: 85px;
         height: 35px;
       }
@@ -283,45 +286,44 @@ and (orientation : portrait) {
     ANIMATIONS
     */
     @keyframes slideInFromBottom {
-  0% {
-    opacity: 0;
-    transform: translateY(+20%);
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes slideInFromLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(+30%);
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-@keyframes slideInFromRight {
-  0% {
-    opacity: 0;
-    transform: translateX(-30%);
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-    
+      0% {
+        opacity: 0;
+        transform: translateY(+30%);
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes slideInFromLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(+30%);
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    @keyframes slideInFromRight {
+      0% {
+        opacity: 0;
+        transform: translateX(-30%);
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
   </style>
   <body>
     <div class="login--container">
@@ -332,7 +334,9 @@ and (orientation : portrait) {
             <button class="navButton" id="guestCustomer">Guest Checkout</button>
           </div>
           <div class="navContainer">
-            <button class="navButton" id="returningCustomer">Returning Customer</button>
+            <button class="navButton" id="returningCustomer">
+              Returning Customer
+            </button>
           </div>
         </div>
         <div class="form--container">
@@ -400,14 +404,16 @@ and (orientation : portrait) {
               </div>
             </div>
           </div>
-          
+
           <div id="createAccountContainer">
             <h4>Or create an account with...</h4>
             <div class="socialAccountContainer">
-            <button class="button" id="createAccountEmail">Email</button>
-            <button class="button" id="createAccountFacebook">Facebook</button>
-            <button class="button" id="createAccountGoogle">Google</button>
-        </div>
+              <button class="button" id="createAccountEmail">Email</button>
+              <button class="button" id="createAccountFacebook">
+                Facebook
+              </button>
+              <button class="button" id="createAccountGoogle">Google</button>
+            </div>
           </div>
           <div id="loginAccountContainer" class="displayNone">
             <h4>Or connect with...</h4>
@@ -415,83 +421,91 @@ and (orientation : portrait) {
               <button class="button" id="facebookLogin">Facebook</button>
               <button class="button" id="googleLogin">Google</button>
             </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
+
     <script>
       window.onload = function() {
-        let inputContainer = document.getElementById("showGuestlogin")
+        let inputContainer = document.getElementById("showGuestlogin");
         inputContainer.classList.remove("noOpacity");
         inputContainer.classList.add("addOpacity");
-        let createAccountContainer = document.getElementById("createAccountContainer")
+        let createAccountContainer = document.getElementById(
+          "createAccountContainer"
+        );
         createAccountContainer.classList.remove("noOpacity");
         createAccountContainer.classList.add("addOpacity");
         createAccountContainer.classList.add("addOpacity");
-};
-        document
-          .getElementById("returningCustomer")
-          .addEventListener("click", function() {
-            let guestCustomer = document.getElementById("guestCustomer")
-            guestCustomer.style.border = "none"
-            let returningCustomer = document.getElementById("returningCustomer")
-            returningCustomer.style.borderBottom = "1px solid #cdc2b7"
-              let guestContainer = document.getElementById('showGuestlogin')
-              guestContainer.classList.add("displayNone")
-              let signInContainer = document.getElementById('showSignIn')
-              signInContainer.classList.remove('displayNone')
-              
-              //signInContainer.classList.remove("noOpacity")
-              //signInContainer.classList.add("addOpacity","showSignInAnimation")
-              signInContainer.classList.add("showSignInAnimation")
-              //signInContainer.style.display="inline"
-              
-              let createAccountContainer = document.getElementById("createAccountContainer")
-              createAccountContainer.classList.add("displayNone")
-              let loginAccountContainer = document.getElementById('loginAccountContainer')
-              loginAccountContainer.classList.remove("displayNone")
-              loginAccountContainer.classList.add("showSignInAnimationAccount")
-              let showCreateAccount = document.getElementById("showCreateAccount")
-              showCreateAccount.classList.add('displayNone')
-          });
-          document
-          .getElementById("guestCustomer")
-          .addEventListener("click", function() {
-            let returningCustomer = document.getElementById("returningCustomer")
-            returningCustomer.style.border = "none"
-            let guestCustomer = document.getElementById("guestCustomer")
-            guestCustomer.style.borderBottom = "1px solid #cdc2b7"
-              let guestContainer = document.getElementById('showGuestlogin')
-              guestContainer.classList.remove('displayNone')
-              let signInContainer = document.getElementById('showSignIn')
-              signInContainer.classList.add('displayNone')
-              let createAccountContainer = document.getElementById("createAccountContainer")
-              createAccountContainer.classList.remove("displayNone")
-              createAccountContainer.classList.add("showSignInAnimationAccount")
-              let loginAccountContainer = document.getElementById('loginAccountContainer')
-              loginAccountContainer.classList.add("displayNone")
-              //loginAccountContainer.classList.add("showSignInAnimationAccount")
-              let showCreateAccount = document.getElementById("showCreateAccount")
-              showCreateAccount.classList.add("displayNone")
-          });
-          document
-          .getElementById("createAccountEmail")
-          .addEventListener("click", function() {
-            let guestCustomer = document.getElementById("guestCustomer")
-            guestCustomer.style.border = "none"
-              let guestContainer = document.getElementById('showGuestlogin')
-              guestContainer.classList.add("displayNone")
-              let signInContainer = document.getElementById('showSignIn')
-              signInContainer.classList.add("displayNone")
-              let createAccountContainer = document.getElementById("createAccountContainer")
-              createAccountContainer.classList.add("displayNone")
-              let loginAccountContainer = document.getElementById('loginAccountContainer')
-              loginAccountContainer.classList.add("displayNone")
-              let showCreateAccount = document.getElementById("showCreateAccount")
-              showCreateAccount.classList.remove("displayNone")
-              showCreateAccount.classList.add("showSignInAnimationAccount")
-          });
+      };
+      document
+        .getElementById("returningCustomer")
+        .addEventListener("click", function() {
+          let guestCustomer = document.getElementById("guestCustomer");
+          guestCustomer.style.border = "none";
+          let returningCustomer = document.getElementById("returningCustomer");
+          returningCustomer.style.borderBottom = "1px solid #cdc2b7";
+          let guestContainer = document.getElementById("showGuestlogin");
+          guestContainer.classList.add("displayNone");
+          let signInContainer = document.getElementById("showSignIn");
+          signInContainer.classList.remove("displayNone");
+          signInContainer.classList.add("showSignInAnimation");
+          let createAccountContainer = document.getElementById(
+            "createAccountContainer"
+          );
+          createAccountContainer.classList.add("displayNone");
+          let loginAccountContainer = document.getElementById(
+            "loginAccountContainer"
+          );
+          loginAccountContainer.classList.remove("displayNone");
+          loginAccountContainer.classList.add("showSignInAnimationAccount");
+          let showCreateAccount = document.getElementById("showCreateAccount");
+          showCreateAccount.classList.add("displayNone");
+        });
+      document
+        .getElementById("guestCustomer")
+        .addEventListener("click", function() {
+          let returningCustomer = document.getElementById("returningCustomer");
+          returningCustomer.style.border = "none";
+          let guestCustomer = document.getElementById("guestCustomer");
+          guestCustomer.style.borderBottom = "1px solid #cdc2b7";
+          let guestContainer = document.getElementById("showGuestlogin");
+          guestContainer.classList.remove("displayNone");
+          let signInContainer = document.getElementById("showSignIn");
+          signInContainer.classList.add("displayNone");
+          let createAccountContainer = document.getElementById(
+            "createAccountContainer"
+          );
+          createAccountContainer.classList.remove("displayNone");
+          createAccountContainer.classList.add("showSignInAnimationAccount");
+          let loginAccountContainer = document.getElementById(
+            "loginAccountContainer"
+          );
+          loginAccountContainer.classList.add("displayNone");
+          let showCreateAccount = document.getElementById("showCreateAccount");
+          showCreateAccount.classList.add("displayNone");
+        });
+      document
+        .getElementById("createAccountEmail")
+        .addEventListener("click", function() {
+          let guestCustomer = document.getElementById("guestCustomer");
+          guestCustomer.style.border = "none";
+          let guestContainer = document.getElementById("showGuestlogin");
+          guestContainer.classList.add("displayNone");
+          let signInContainer = document.getElementById("showSignIn");
+          signInContainer.classList.add("displayNone");
+          let createAccountContainer = document.getElementById(
+            "createAccountContainer"
+          );
+          createAccountContainer.classList.add("displayNone");
+          let loginAccountContainer = document.getElementById(
+            "loginAccountContainer"
+          );
+          loginAccountContainer.classList.add("displayNone");
+          let showCreateAccount = document.getElementById("showCreateAccount");
+          showCreateAccount.classList.remove("displayNone");
+          showCreateAccount.classList.add("showSignInAnimationAccount");
+        });
     </script>
   </body>
 </html>
