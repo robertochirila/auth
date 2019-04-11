@@ -174,16 +174,28 @@
     }
 
     .showSignInAnimation {
-      animation: 0.7s ease-out 0s 1 slideInFromLeft;
+      animation: 0.7s ease-out 0s 1 slideInFromRight;
     }
     .showSignInAnimationAccount {
       animation: 0.7s ease-out 0s 1 slideInFromRight;
+    }
+    .showSignInAnimationAccountBottom {
+      animation: 0.7s ease-out 0s 1 slideInFromBottom;
+    }
+    .showSignInAnimationContainer {
+      animation: 0.7s ease-out 0s 1 slideInFromLeft;
     }
     #showGuestlogin {
       animation: 0.7s ease-out 0s 1 slideInFromLeft;
     }
     #createAccountContainer {
       animation: 0.7s ease-out 0s 1 slideInFromRight;
+    }
+    .disabled {
+      opacity: 0.3;
+    }
+    .enabled {
+      opacity: 1;
     }
     .noOpacity {
       opacity: 0;
@@ -324,10 +336,12 @@
       <div class="wrapper">
         <div class="form--states">
           <div class="navContainer">
-            <button class="navButton" id="guestCustomer">Guest Checkout</button>
+            <button class="navButton enabled" id="guestCustomer">
+              Guest Checkout
+            </button>
           </div>
           <div class="navContainer">
-            <button class="navButton" id="returningCustomer">
+            <button class="navButton disabled" id="returningCustomer">
               Returning Customer
             </button>
           </div>
@@ -461,6 +475,12 @@
       document
         .getElementById("returningCustomer")
         .addEventListener("click", function() {
+          let returningButton = document.getElementById("returningCustomer");
+          returningButton.classList.remove("disabled");
+          returningButton.classList.add("enabled");
+          let guestButton = document.getElementById("guestCustomer");
+          guestButton.classList.remove("enabled");
+          guestButton.classList.add("disabled");
           let guestCustomer = document.getElementById("guestCustomer");
           guestCustomer.style.border = "none";
           let returningCustomer = document.getElementById("returningCustomer");
@@ -478,13 +498,19 @@
             "loginAccountContainer"
           );
           loginAccountContainer.classList.remove("displayNone");
-          loginAccountContainer.classList.add("showSignInAnimationAccount");
+          loginAccountContainer.classList.add("showSignInAnimationContainer");
           let showCreateAccount = document.getElementById("showCreateAccount");
           showCreateAccount.classList.add("displayNone");
         });
       document
         .getElementById("guestCustomer")
         .addEventListener("click", function() {
+          let returningButton = document.getElementById("returningCustomer");
+          returningButton.classList.remove("enabled");
+          returningButton.classList.add("disabled");
+          let guestButton = document.getElementById("guestCustomer");
+          guestButton.classList.remove("disabled");
+          guestButton.classList.add("enabled");
           let returningCustomer = document.getElementById("returningCustomer");
           returningCustomer.style.border = "none";
           let guestCustomer = document.getElementById("guestCustomer");
@@ -508,6 +534,12 @@
       document
         .getElementById("createAccountEmail")
         .addEventListener("click", function() {
+          let returningButton = document.getElementById("returningCustomer");
+          returningButton.classList.remove("disabled");
+          returningButton.classList.add("enabled");
+          let guestButton = document.getElementById("guestCustomer");
+          guestButton.classList.remove("disabled");
+          guestButton.classList.add("enabled");
           let guestCustomer = document.getElementById("guestCustomer");
           guestCustomer.style.border = "none";
           let guestContainer = document.getElementById("showGuestlogin");
@@ -524,7 +556,7 @@
           loginAccountContainer.classList.add("displayNone");
           let showCreateAccount = document.getElementById("showCreateAccount");
           showCreateAccount.classList.remove("displayNone");
-          showCreateAccount.classList.add("showSignInAnimationAccount");
+          showCreateAccount.classList.add("showSignInAnimationAccountBottom");
         });
     </script>
   </body>
