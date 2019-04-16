@@ -9,12 +9,17 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     />
+    <link
+      href="https://fonts.googleapis.com/css?family=Karla"
+      rel="stylesheet"
+    />
   </head>
   <style>
     body {
       background-image: url("background_login-02.png");
       background-size: cover;
       background-position: top;
+      font-family: "Karla", sans-serif;
     }
 
     .wrapper {
@@ -27,6 +32,11 @@
       margin-top: 5%;
       margin-left: 32%;
       animation: 0.5s ease-out 0s 1 slideInFromBottom;
+    }
+
+    ::placeholder {
+      /* Firefox, Chrome, Opera */
+      color: #6c6c6c;
     }
 
     .form--states {
@@ -63,20 +73,19 @@
     }
     .input {
       width: 100%;
-      border: 1px solid #6c6c6c;
+      border: 0.6px solid #6c6c6c;
       margin: 3% 0;
       padding: 2% 5%;
     }
     .button {
       background: transparent;
-      border: 1px solid;
       transition: color 0.5s, background-color 0.5s;
       width: 95px;
       height: 30px;
     }
 
     .navButton {
-      border: 0.3px solid #6c6c6c;
+      /*border: 0.3px solid #6c6c6c;*/
       width: 50%;
       padding: 15px 5px;
       background: transparent;
@@ -94,10 +103,12 @@
     #continueCreateAccount {
       width: 100px;
       height: 30px;
+      border: 0.6px solid #6c6c6c
     }
     #continueCreateAccount:hover {
       color: #fff;
       background: #000;
+      border: 0.6px solid #000;
     }
     #lnameCreate {
       margin-left: 5%;
@@ -121,10 +132,12 @@
     }
     #loginButton {
       margin-bottom: 5%;
+      border: 0.6px solid #6c6c6c;
     }
     #loginButton:hover {
       background-color: #000;
       color: #fff;
+      border-color: #000;
     }
     #googleLogin:hover {
       color: #fff;
@@ -132,7 +145,7 @@
     }
     #createAccountEmail {
       color: #000;
-      border-color: #000;
+      border: 0.6px solid #6c6c6c;
     }
     #createAccountEmail:hover {
       background-color: #000;
@@ -140,7 +153,8 @@
     }
     #createAccountFacebook {
       color: #3b5998;
-      border-color: #3b5998;
+      border: 0.6px solid #3b5998;
+      /*border-color: #3b5998;*/
     }
     #createAccountFacebook:hover {
       color: #fff;
@@ -148,7 +162,7 @@
     }
     #createAccountGoogle {
       color: #db4437;
-      border-color: #db4437;
+      border: 0.6px solid #db4437;
     }
     #createAccountGoogle:hover {
       color: #fff;
@@ -156,12 +170,13 @@
     }
     #continueSignIn {
       margin-bottom: 5%;
-      border-color: #000;
+      border: 0.6px solid #6c6c6c;
       color: #000;
     }
     #continueSignIn:hover {
       background-color: #000;
       color: #fff;
+      border-color: #000;
     }
 
     .socialAccountContainer {
@@ -197,28 +212,49 @@
     #createAccountContainer {
       animation: 0.7s ease-out 0s 1 slideInFromRight;
     }
+    .disableLeftBorder{
+      border-left: none;
+      border-bottom: 0.6px solid #6c6c6c;
+      color: #6c6c6c;
+    }
     .disabled {
       color: #6c6c6c;
       border-left: 0.6px solid #6c6c6c;
       border-bottom: 0.6px solid #6c6c6c;
     }
     .enableGuest {
+      border: 0.2px solid #6c6c6c;
       border-bottom: none;
       border-right: none;
+      color: #000;
+    }
+    .disableRightBorder{
+      /*border-right: 0.2px solid #6c6c6c;*/
+      border-bottom: 0.6px solid #6c6c6c;
+      color: #6c6c6c;
     }
     .disableGuest {
-      border-left-color: #c0c0c0;
-      border-top-color: #c0c0c0;
-      color: #c0c0c0;
+      border-right: 0.2px solid #6c6c6c;
+      border-bottom: 0.6px solid #6c6c6c;
+      /*border-top: 0.2px solid #6c6c6c;*/
+      color: #6c6c6c;
     }
     .enableReturning {
       border-bottom: none;
       border-left: none;
+      border-top: 0.6px solid #6c6c6c;
+      border-right: 0.6px solid #6c6c6c;
+      /*border-left: 0.6px solid #6c6c6c;*/
+      color: #000;
     }
     .disableReturning {
-      border-top-color: #c0c0c0;
-      border-right-color: #c0c0c0;
-      color: #c0c0c0;
+      /*border-top: 0.2px solid #6c6c6c;
+      border-right: 0.2px solid #6c6c6c;*/
+      /*border-top-color: 0.3px solid #6c6c6c;
+      border-right-color: #6c6c6c;*/
+      border-bottom: 0.6px solid #6c6c6c;
+      border-left: 0.6px solid #6c6c6c;
+      color: #6c6c6c;
     }
     .enabled {
       border-bottom: none;
@@ -363,7 +399,9 @@
   </style>
   <body>
     <div class="login--container">
-      <h3 style="margin-bottom: 20px;">Checkout</h3>
+      <h3 style="margin-bottom: 20px; font-weight: 700; letter-spacing: 0.5px;">
+        Checkout
+      </h3>
       <div class="wrapper">
         <div class="form--states">
           <button class="navButton enableGuest" id="guestCustomer">
@@ -376,7 +414,9 @@
         <div class="form--container">
           <div id="showSignIn" class="displayNone">
             <div class="content--container">
-              <h4 style="letter-spacing: 1px;">Sign in with email</h4>
+              <h4 style="letter-spacing: 0.5px; font-weight: 700">
+                Sign in with email
+              </h4>
               <div class="guest--input">
                 <input
                   type="text"
@@ -399,7 +439,9 @@
 
           <div id="showGuestlogin">
             <div class="content--container">
-              <h4 style="letter-spacing: 1px;">Continue as a guest</h4>
+              <h4 style="letter-spacing: 0.5px; font-weight: 700">
+                Continue as a guest
+              </h4>
               <div class="userData--input">
                 <input
                   type="text"
@@ -429,7 +471,9 @@
           </div>
           <div id="showCreateAccount" class="displayNone">
             <div class="content--container">
-              <h4 style="letter-spacing: 1px;">Create an account</h4>
+              <h4 style="letter-spacing: 0.5px; font-weight: 700">
+                Create an account
+              </h4>
               <div class="userData--input">
                 <input
                   type="text"
@@ -467,7 +511,9 @@
           </div>
 
           <div id="createAccountContainer">
-            <h4 style="letter-spacing: 1px;">Or create an account with...</h4>
+            <h4 style="letter-spacing: 0.5px; font-weight: 700">
+              Or create an account with...
+            </h4>
             <div class="socialAccountContainer">
               <button class="button" id="createAccountEmail">Email</button>
               <button class="button" id="createAccountFacebook">
@@ -477,7 +523,9 @@
             </div>
           </div>
           <div id="loginAccountContainer" class="displayNone">
-            <h4 style="letter-spacing: 1px;">Or connect with...</h4>
+            <h4 style="letter-spacing: 0.5px; font-weight: 700">
+              Or connect with...
+            </h4>
             <div class="socialButtons--container">
               <button class="button" id="facebookLogin">Facebook</button>
               <button class="button" id="googleLogin">Google</button>
@@ -508,6 +556,7 @@
           let guestButton = document.getElementById("guestCustomer");
           guestButton.classList.remove("enableGuest");
           guestButton.classList.add("disableGuest");
+          guestButton.classList.add("disableRightBorder");
           let guestContainer = document.getElementById("showGuestlogin");
           guestContainer.classList.add("displayNone");
           let signInContainer = document.getElementById("showSignIn");
@@ -533,6 +582,7 @@
           returningButton.classList.add("disableReturning");
           let guestButton = document.getElementById("guestCustomer");
           guestButton.classList.remove("disableGuest");
+          guestButton.classList.remove("disableRightBorder");
           guestButton.classList.add("enableGuest");
           let returningCustomer = document.getElementById("returningCustomer");
           let guestCustomer = document.getElementById("guestCustomer");
@@ -556,10 +606,12 @@
         .getElementById("createAccountEmail")
         .addEventListener("click", function() {
           let returningButton = document.getElementById("returningCustomer");
-          returningButton.classList.add("disableReturning");
+          /*returningButton.classList.add("disableReturning");*/
+          returningButton.classList.remove("disableReturning");
+          returningButton.classList.add("disableLeftBorder");
           returningButton.classList.remove("enableReturning");
           let guestButton = document.getElementById("guestCustomer");
-          guestButton.classList.add("disableGuest");
+          guestButton.classList.add("disableRightBorder");
           guestButton.classList.remove("enableGuest");
           let guestCustomer = document.getElementById("guestCustomer");
           let guestContainer = document.getElementById("showGuestlogin");
