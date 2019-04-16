@@ -18,15 +18,14 @@
     }
 
     .wrapper {
-      border: 1px solid #cdc2b7;
-      box-shadow: 1px 1px 1px #cdc2b7;
+      border: 0.1px solid #6c6c6c;
       background-color: #fff;
     }
     .login--container {
       z-index: 1;
-      width: 30%;
+      width: 36%;
       margin-top: 5%;
-      margin-left: 35%;
+      margin-left: 32%;
       animation: 0.5s ease-out 0s 1 slideInFromBottom;
     }
 
@@ -34,11 +33,10 @@
       display: flex;
       flex-direction: row;
       justify-content: space-around;
-      border-bottom: 1px solid #cdc2b7;
     }
     .form--container {
-      width: 80%;
-      margin-left: 10%;
+      width: 60%;
+      margin-left: 20%;
       margin-top: 10%;
       margin-bottom: 10%;
     }
@@ -65,7 +63,7 @@
     }
     .input {
       width: 100%;
-      border: 1px solid;
+      border: 1px solid #6c6c6c;
       margin: 3% 0;
       padding: 2% 5%;
     }
@@ -76,9 +74,21 @@
       width: 95px;
       height: 30px;
     }
+
     .navButton {
-      border: none;
+      border: 0.3px solid #6c6c6c;
+      width: 50%;
+      padding: 15px 5px;
       background: transparent;
+    }
+    input:focus {
+      outline: 0;
+      box-shadow: none !important;
+    }
+    .navButton.focus,
+    .navButton:focus {
+      outline: 0;
+      box-shadow: none !important;
     }
 
     #continueCreateAccount {
@@ -155,7 +165,7 @@
     }
 
     .socialAccountContainer {
-      margin: 10% 0;
+      margin: 5% 0;
       display: flex;
       justify-content: space-between;
     }
@@ -167,12 +177,8 @@
     .socialButtons--container {
       display: flex;
       justify-content: space-between;
-      margin: 10% 0;
+      margin: 5% 0;
     }
-    #guestCustomer {
-      border-bottom: 1px solid #cdc2b7;
-    }
-
     .showSignInAnimation {
       animation: 0.7s ease-out 0s 1 slideInFromRight;
     }
@@ -192,9 +198,32 @@
       animation: 0.7s ease-out 0s 1 slideInFromRight;
     }
     .disabled {
-      opacity: 0.3;
+      color: #6c6c6c;
+      border-left: 0.6px solid #6c6c6c;
+      border-bottom: 0.6px solid #6c6c6c;
+    }
+    .enableGuest {
+      border-bottom: none;
+      border-right: none;
+    }
+    .disableGuest {
+      border-left-color: #c0c0c0;
+      border-top-color: #c0c0c0;
+      color: #c0c0c0;
+    }
+    .enableReturning {
+      border-bottom: none;
+      border-left: none;
+    }
+    .disableReturning {
+      border-top-color: #c0c0c0;
+      border-right-color: #c0c0c0;
+      color: #c0c0c0;
     }
     .enabled {
+      border-bottom: none;
+      border-left: none;
+      border-top: none;
       opacity: 1;
     }
     .noOpacity {
@@ -271,20 +300,22 @@
         width: 90%;
         height: 70vh;
         margin-left: 5%;
+        margin-top: 20%;
       }
-      .wrapper {
-        height: 100%;
+      .form--container {
+        width: 70%;
+        margin-left: 15%;
       }
       .input {
-        padding: 3% 8%;
+        height: 30px;
       }
       .button {
-        width: 85px;
-        height: 35px;
+        width: 75px;
+        height: 30px;
       }
       #continueCreateAccount {
-        width: 85px;
-        height: 35px;
+        width: 75px;
+        height: 30px;
       }
     }
     /*
@@ -332,24 +363,20 @@
   </style>
   <body>
     <div class="login--container">
-      <h3>Checkout</h3>
+      <h3 style="margin-bottom: 20px;">Checkout</h3>
       <div class="wrapper">
         <div class="form--states">
-          <div class="navContainer">
-            <button class="navButton enabled" id="guestCustomer">
-              Guest Checkout
-            </button>
-          </div>
-          <div class="navContainer">
-            <button class="navButton disabled" id="returningCustomer">
-              Returning Customer
-            </button>
-          </div>
+          <button class="navButton enableGuest" id="guestCustomer">
+            Guest Checkout
+          </button>
+          <button class="navButton disableReturning" id="returningCustomer">
+            Returning Customer
+          </button>
         </div>
         <div class="form--container">
           <div id="showSignIn" class="displayNone">
             <div class="content--container">
-              <h4>Sign in with email</h4>
+              <h4 style="letter-spacing: 1px;">Sign in with email</h4>
               <div class="guest--input">
                 <input
                   type="text"
@@ -372,7 +399,7 @@
 
           <div id="showGuestlogin">
             <div class="content--container">
-              <h4>Continue as a guest</h4>
+              <h4 style="letter-spacing: 1px;">Continue as a guest</h4>
               <div class="userData--input">
                 <input
                   type="text"
@@ -402,7 +429,7 @@
           </div>
           <div id="showCreateAccount" class="displayNone">
             <div class="content--container">
-              <h4>Create an account</h4>
+              <h4 style="letter-spacing: 1px;">Create an account</h4>
               <div class="userData--input">
                 <input
                   type="text"
@@ -440,7 +467,7 @@
           </div>
 
           <div id="createAccountContainer">
-            <h4>Or create an account with...</h4>
+            <h4 style="letter-spacing: 1px;">Or create an account with...</h4>
             <div class="socialAccountContainer">
               <button class="button" id="createAccountEmail">Email</button>
               <button class="button" id="createAccountFacebook">
@@ -450,7 +477,7 @@
             </div>
           </div>
           <div id="loginAccountContainer" class="displayNone">
-            <h4>Or connect with...</h4>
+            <h4 style="letter-spacing: 1px;">Or connect with...</h4>
             <div class="socialButtons--container">
               <button class="button" id="facebookLogin">Facebook</button>
               <button class="button" id="googleLogin">Google</button>
@@ -476,15 +503,11 @@
         .getElementById("returningCustomer")
         .addEventListener("click", function() {
           let returningButton = document.getElementById("returningCustomer");
-          returningButton.classList.remove("disabled");
-          returningButton.classList.add("enabled");
+          returningButton.classList.remove("disableReturning");
+          returningButton.classList.add("enableReturning");
           let guestButton = document.getElementById("guestCustomer");
-          guestButton.classList.remove("enabled");
-          guestButton.classList.add("disabled");
-          let guestCustomer = document.getElementById("guestCustomer");
-          guestCustomer.style.border = "none";
-          let returningCustomer = document.getElementById("returningCustomer");
-          returningCustomer.style.borderBottom = "1px solid #cdc2b7";
+          guestButton.classList.remove("enableGuest");
+          guestButton.classList.add("disableGuest");
           let guestContainer = document.getElementById("showGuestlogin");
           guestContainer.classList.add("displayNone");
           let signInContainer = document.getElementById("showSignIn");
@@ -506,15 +529,13 @@
         .getElementById("guestCustomer")
         .addEventListener("click", function() {
           let returningButton = document.getElementById("returningCustomer");
-          returningButton.classList.remove("enabled");
-          returningButton.classList.add("disabled");
+          returningButton.classList.remove("enableReturning");
+          returningButton.classList.add("disableReturning");
           let guestButton = document.getElementById("guestCustomer");
-          guestButton.classList.remove("disabled");
-          guestButton.classList.add("enabled");
+          guestButton.classList.remove("disableGuest");
+          guestButton.classList.add("enableGuest");
           let returningCustomer = document.getElementById("returningCustomer");
-          returningCustomer.style.border = "none";
           let guestCustomer = document.getElementById("guestCustomer");
-          guestCustomer.style.borderBottom = "1px solid #cdc2b7";
           let guestContainer = document.getElementById("showGuestlogin");
           guestContainer.classList.remove("displayNone");
           let signInContainer = document.getElementById("showSignIn");
@@ -535,13 +556,12 @@
         .getElementById("createAccountEmail")
         .addEventListener("click", function() {
           let returningButton = document.getElementById("returningCustomer");
-          returningButton.classList.remove("disabled");
-          returningButton.classList.add("enabled");
+          returningButton.classList.add("disableReturning");
+          returningButton.classList.remove("enableReturning");
           let guestButton = document.getElementById("guestCustomer");
-          guestButton.classList.remove("disabled");
-          guestButton.classList.add("enabled");
+          guestButton.classList.add("disableGuest");
+          guestButton.classList.remove("enableGuest");
           let guestCustomer = document.getElementById("guestCustomer");
-          guestCustomer.style.border = "none";
           let guestContainer = document.getElementById("showGuestlogin");
           guestContainer.classList.add("displayNone");
           let signInContainer = document.getElementById("showSignIn");
